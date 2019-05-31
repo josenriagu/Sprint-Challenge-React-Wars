@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import StarWarsCharList from './components/StarWarsCharList';
 
 class App extends Component {
   constructor() {
@@ -29,10 +30,19 @@ class App extends Component {
       });
   };
 
+
   render() {
-    return (
+    return ((this.state.starwarsChars) ?
       <div className="App">
-        <h1 className="Header">React Wars</h1>
+        <h1 className="Header">React Wars Characters</h1>
+        <StarWarsCharList
+          starwarsChars={this.state.starwarsChars}
+          onClickPrev={this.onClickPrev}
+          onClickNext={this.onClickNext}
+        />
+      </div> :
+      <div className="App">
+        <h1 className="Header">No Data Loaded in State</h1>
       </div>
     );
   }
