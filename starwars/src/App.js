@@ -6,7 +6,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      next: '',
+      previous: ''  
     };
   }
 
@@ -24,12 +26,21 @@ class App extends Component {
       })
       .then(data => {
         this.setState({ starwarsChars: data.results });
+        this.setState({ next: data.next })
+        this.setState({ previous: data.previous})
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  onClickNext = () => {
+    this.getCharacters(this.state.next);
+  }
+
+  onClickPrev = () => {
+    this.getCharacters(this.state.previous);
+  }
 
   render() {
     return ((this.state.starwarsChars) ?
@@ -39,6 +50,8 @@ class App extends Component {
           starwarsChars={this.state.starwarsChars}
           onClickPrev={this.onClickPrev}
           onClickNext={this.onClickNext}
+          next={this.state.next}
+          previous={this.state.previous}
         />
       </div> :
       <div className="App">
