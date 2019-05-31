@@ -1,15 +1,16 @@
 import React from 'react';
-import Button from './Button';
 import './StarWars.css';
 
 const Dog = props => {
     return (
-        <div className="dog" >
-            <Button
-                onClick={props.onClick}
-                text="New Dog"
-            />
-            <img src={props.src} alt="random dog" />
+        <div className="dogs" >
+            {props.src.map((src, index) => {
+                return (
+                    <div key={index} className="dog">
+                        <img src={src} alt="random dog" />
+                    </div>
+                );
+            })}
         </div>
     );
 }
