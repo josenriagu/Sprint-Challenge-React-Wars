@@ -1,0 +1,45 @@
+h2 {
+    color: #c6930a;
+}
+h3 {
+    color: blue;
+}
+span {
+    font-weight: 600;
+    color: #443e3e;
+
+}
+.starwarschar-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: green; */
+    padding: 1rem;
+}
+.starwars-char {
+    width: calc(20% - 1rem);
+    background-color: rgb(242, 242, 243);
+    margin: 0 .25rem 1rem .25rem;
+    padding: 0 .05rem;
+    border-radius: .5rem;
+    word-wrap: break-word;
+}
+.starwars-char:hover {
+    cursor: pointer;
+    background-color: rgb(161, 161, 170);
+    color: white;
+}
+@media (max-width: 1000px) {
+    .starwars-char{
+        width: calc(33.333333% - .5rem);
+    }
+}
+@media (max-width: 700px) {
+    .starwars-char{
+        width: calc(50% - .5rem);
+    }
+}
+@media (max-width: 500px) {
+    .starwars-char{
+        width: 100%;
+    }
+}
