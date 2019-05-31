@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Dog from './components/Dog'
+import Button from './components/Button';
 
 class DogApp extends Component {
     constructor() {
         super();
         this.state = {
-            imageUrl:'',
-            next: '',
-            previous: ''
+            imageUrl: [],
         };
     }
 
@@ -25,8 +24,7 @@ class DogApp extends Component {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
-                this.setState({ imageUrl: data.message });
+                this.setState({ imageUrl: this.state.imageUrl.concat(data.message) });
             })
             .catch(err => {
                 throw new Error(err);
@@ -38,9 +36,14 @@ class DogApp extends Component {
     }
 
     render() {
+        console.log(this.state.imageUrl);
         return ((this.state.imageUrl) ?
             <div className="App">
                 <h1 className="Header">Dog Collection</h1>
+                <Button
+                    onClick={this.onClick}
+                    text="New Dog"
+                />
                 <Dog
                     src={this.state.imageUrl}
                     onClick={this.onClick}
