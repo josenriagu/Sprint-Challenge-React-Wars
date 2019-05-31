@@ -36,7 +36,6 @@ class DogApp extends Component {
     }
 
     render() {
-        console.log(this.state.imageUrl);
         return ((this.state.imageUrl) ?
             <div className="App">
                 <h1 className="Header">Dog Collection</h1>
