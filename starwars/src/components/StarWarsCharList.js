@@ -1,5 +1,6 @@
 import React from 'react';
 import StarWars from './StarWarsChar';
+import Button from './Button';
 import './StarWars.css';
 
 const StarWarsCharList = props => {
@@ -12,14 +13,18 @@ const StarWarsCharList = props => {
     return (
         <div className="main">
             <div className="buttons">
-                <button
-                    className="previous"
+                <Button
+                    class="previous"
                     style={styleP}
-                    onClick={props.onClickPrev}>Prev</button>
-                <button
-                    className="Next"
+                    onClick={props.onClickPrev}
+                    text="Prev"
+                />
+                <Button
+                    class="next"
                     style={styleN}
-                    onClick={props.onClickNext}>Next</button>
+                    onClick={props.onClickNext}
+                    text="Next"
+                />
             </div>
             <div className="starwarschar-list">
                 {
